@@ -64,7 +64,17 @@ const generateTabContent = () => {
     
     try {
       //call our backend 
-      
+      setGeneratingImg(true);
+      const response = await fetch(`${'http://localhost:5000/api/v1/dalle'}`,{
+        method: "POST",
+        headers: {'content-type': 'application/json'},
+        body: JSON.stringify({prompt})
+      });
+
+      const data = await response.json();
+
+      handleDecals(type,`data:image/png;base64,${data.photo}`)
+
     }
     catch(err){
       alert(err)
