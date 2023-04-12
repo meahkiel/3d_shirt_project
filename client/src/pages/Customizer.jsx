@@ -65,7 +65,7 @@ const generateTabContent = () => {
     try {
       //call our backend 
       setGeneratingImg(true);
-      const response = await fetch(`${'https://threed-shirt-project.onrender.com/api/v1/dalle'}`,{
+      const response = await fetch(`${'http://localhost:5000/api/v1/dalle'}`,{
         method: "POST",
         headers: {'content-type': 'application/json'},
         body: JSON.stringify({prompt})
